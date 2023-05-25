@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class MoleMotion : MonoBehaviour
 {
-    public float speed;
-    float Up;
-    float Down;
+    [SerializeField]
+    private float moveSpeed = 0;
+    private Vector3 moveDirection = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
-        Up = 0;
-        Down = 2.26f;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Up >= Down){
-            transform.position = new Vector3(0, Down, 0);
-            Down += Time.deltaTime * -speed * 1/60;
-        }
-        Up += Time.deltaTime * speed * 1/60;
-        transform.position = new Vector3(0, Up, 0);
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+    }
+
+    public void MoveTo(Vector3 direction){ //외부에서 이동방향 주는 경우 사용하는 메서드
+        moveDirection = direction;
     }
 }
