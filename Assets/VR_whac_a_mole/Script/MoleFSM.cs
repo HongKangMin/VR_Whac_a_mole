@@ -14,13 +14,13 @@ public class MoleFSM : MonoBehaviour
     [SerializeField]
     private float limitMaxY; //내려갈 수 있는 최대 y 위치
 
-    private MoleMotion movement3D;  // 두더지 이동 클래스 선언
+    private MoleMovement movement3D;  // 두더지 이동 클래스 선언
 
     public MoleState MoleState {private set; get;}
     // Start is called before the first frame update
 
     private void Awake() {
-        movement3D = GetComponent<MoleMotion>();
+        movement3D = GetComponent<MoleMovement>();
         ChangeState(MoleState.UnderGround); //시작할 때는 땅에서
     }
 
