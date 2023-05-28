@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class Hit_test : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Ãæµ¹ ½ÃÀÛ");
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        Debug.Log("Ãæµ¹ ³¡");
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("Ãæµ¹ Áß");
-    }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Æ®¸®°Å Ãæµ¹ ½ÃÀÛ");
+        
+        Debug.Log("Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½");
+
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Æ®¸®°Å Ãæµ¹ ³¡");
+        Debug.Log("Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½");
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Æ®¸®°Å Ãæµ¹ Áß");
+        Debug.Log("Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½");
     }
 }

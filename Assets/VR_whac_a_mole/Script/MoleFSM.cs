@@ -86,6 +86,15 @@ public class MoleFSM : MonoBehaviour
             yield return null;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        StopCoroutine(MoleState.ToString());
+        StartCoroutine("MoveDown");
+        Debug.Log("충돌 했습니다");
+
+    }
+    
     void Start()
     {
         
