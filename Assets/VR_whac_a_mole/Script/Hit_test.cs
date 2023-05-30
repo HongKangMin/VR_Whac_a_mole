@@ -1,21 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Hit_test : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        Debug.Log("Ʈ���� �浹 ����");
 
-    }
-    private void OnTriggerExit(Collider other)
+    public GameObject hit;
+    private Collider mole;
+
+    private void OnTriggerEnter(Collider mole)
     {
-        Debug.Log("Ʈ���� �浹 ��");
-    }
-    private void OnTriggerStay(Collider other)
+        StartCoroutine(ShowEffect());
+    }   
+    private void OnTriggerExit(Collider mole)
     {
-        Debug.Log("Ʈ���� �浹 ��");
+        Debug.Log("충돌 끝");
     }
+    private void OnTriggerStay(Collider mole)
+    {
+        Debug.Log("충돌 중");
+        
+    }
+
+    IEnumerator ShowEffect()
+    {
+        hit.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.0f);
+        Debug.Log("충돌 시작");
+        hit.SetActive(false);
+    }
+
 }
