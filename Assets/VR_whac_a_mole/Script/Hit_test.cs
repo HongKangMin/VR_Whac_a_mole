@@ -12,7 +12,7 @@ public class Hit_test : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-         if(other.tag == "Mole" && Score_Timer.Game_Start)
+        if(other.tag == "Mole" && Score_Timer.Game_Start)
         {
             StartCoroutine(ShowEffect());
             Score_Timer.Whac_Score += 1;
@@ -35,4 +35,5 @@ public class Hit_test : MonoBehaviour
         Debug.Log("충돌 시작");
         hit.SetActive(false);
     }
+
 }
