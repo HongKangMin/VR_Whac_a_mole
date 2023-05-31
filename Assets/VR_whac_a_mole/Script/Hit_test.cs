@@ -10,9 +10,11 @@ public class Hit_test : MonoBehaviour
     public GameObject hit;
     private Collider mole;
 
-    private void OnTriggerEnter(Collider mole)
+    private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(ShowEffect());
+        if(other.tag == "Mole"){
+            StartCoroutine(ShowEffect());
+        }
     }   
     private void OnTriggerExit(Collider mole)
     {

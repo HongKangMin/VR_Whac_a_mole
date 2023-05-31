@@ -26,10 +26,4 @@ public class MoleSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
