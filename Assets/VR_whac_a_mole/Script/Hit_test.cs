@@ -12,9 +12,10 @@ public class Hit_test : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Mole"){
-            
+         if(other.tag == "Mole" && Score_Timer.Game_Start)
+        {
             StartCoroutine(ShowEffect());
+            Score_Timer.Whac_Score += 1;
         }
     }   
     private void OnTriggerExit(Collider mole)
