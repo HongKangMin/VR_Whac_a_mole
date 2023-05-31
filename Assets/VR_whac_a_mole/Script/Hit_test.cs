@@ -8,6 +8,9 @@ public class Hit_test : MonoBehaviour
 {
 
     public GameObject hit;
+
+    public bool CoolDown = false;
+
     private Collider mole;
 
     private void OnTriggerEnter(Collider other)
@@ -15,7 +18,12 @@ public class Hit_test : MonoBehaviour
         if(other.tag == "Mole" && Score_Timer.Game_Start)
         {
             StartCoroutine(ShowEffect());
-            Score_Timer.Whac_Score += 1;
+            if (!CoolDown)
+            {
+                CoolDown = true;
+                Score_Timer.Whac_Score += 1;
+                Invoke("Hit_Check", 1f);
+            }
         }
     }   
     private void OnTriggerExit(Collider mole)
@@ -36,4 +44,8 @@ public class Hit_test : MonoBehaviour
         hit.SetActive(false);
     }
 
+    private void Hit_Check()
+    {
+        CoolDown = false;
+    }
 }
