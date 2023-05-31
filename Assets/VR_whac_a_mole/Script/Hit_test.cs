@@ -10,15 +10,11 @@ public class Hit_test : MonoBehaviour
     public GameObject hit;
     private Collider mole;
 
-    private bool coolTime = false;
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Mole" && !coolTime){
-            coolTime = true;
+        if(other.tag == "Mole"){
+            
             StartCoroutine(ShowEffect());
-            StopAllCoroutines();
-            StartCoroutine(CoolTime());
         }
     }   
     private void OnTriggerExit(Collider mole)
@@ -38,11 +34,4 @@ public class Hit_test : MonoBehaviour
         Debug.Log("충돌 시작");
         hit.SetActive(false);
     }
-
-    IEnumerator CoolTime()
-    {
-        yield return new WaitForSecondsRealtime(3.0f);
-        coolTime = false;
-    }
-
 }
